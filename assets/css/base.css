@@ -1,0 +1,17 @@
+:root{
+  --background-color-01: #e4e1e162;
+  --background-color-02: #ffffff;
+  --background-color-03: #bfa4f034;
+  --background-color-04: blueviolet;
+
+
+  --text-color-01: #000000;
+  --text-color-02: #FFFFFF;
+  --text-color-03: blueviolet;
+  --text-color-04: rgb(85, 13, 153);
+  
+}
+
+.hide{
+  display: none;
+}

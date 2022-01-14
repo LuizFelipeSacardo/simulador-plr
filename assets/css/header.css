@@ -1,0 +1,49 @@
+.header{  
+  max-width: 720px;
+  height: 150px;
+  background-color: var(--background-color-01);
+  padding: 0; 
+  margin: 4px;  
+  margin-bottom: 0;
+  border: 2px solid var(--text-color-04);
+  border-radius: 5px;  
+}
+
+.header__title{
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-color-04);
+  padding: 10px;  
+  margin: 0;
+  border-bottom: 1px solid var(--text-color-04);
+}
+
+.header__select{
+display: flex;
+justify-content: space-evenly;
+}
+
+.header__select-title{
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: var(--text-color-03);
+  margin-bottom: 5px;
+  padding-bottom: 0;
+}
+
+.header__select-button{
+  width: 48%;
+  height: 40px;
+  border: none;  
+  background-color: var(--background-color-01);
+  color: var(--text-color-03);
+  border-bottom: 1px solid var(--text-color-03);
+  border-radius: 5px;
+}
+
+.header__select-button--active{
+  border-bottom: 1px solid var(--text-color-03);
+  background-color: var(--background-color-04);
+  color: white;
+}
