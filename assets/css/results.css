@@ -1,0 +1,35 @@
+.results{
+  width: 97%;
+  height: 120px;
+  margin: auto;
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  background-color: var(--background-color-01);
+  border: 2px solid var(--text-color-positive);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.results__title{
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 5px;  
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color-positive);
+  text-decoration: underline;
+}
+
+.results__line{
+  margin: auto;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.results__line--deductor{
+  color: var(--text-color-negative)
+}
+
+.results__line--net{
+  color: var(--text-color-positive);
+}

@@ -1,15 +1,12 @@
 .main{
   max-width: 720px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   margin: auto;
 }
 
 .form{
   border: 2px solid var(--text-color-04);
   margin: 5px;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
 }
@@ -41,8 +38,10 @@ fieldset{
 }
 
 .input{
-  width: 100%;
+  width: calc(100% - 25px);
   height: 40px;
+  padding: 5px;
+  padding-left: 20px;
   border: none;
   border-radius: 10px;
   background-color: var(--background-color-03);  
@@ -54,19 +53,25 @@ fieldset{
 }
 
 .form__calculate-button{
-  width: 70%;
-  height: 50px;
-  margin-left: 15%;
+  width: 80%;
+  height: 60px;
+  margin-left: 10%;
   border-radius: 10px;
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--text-color-04);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
-  border: 1px solid var(--text-color-04);
+  border: 2px solid var(--text-color-04);
   background-color: var(--background-color-01);
 }
 
 .form__calculate-button:active, .form__calculate-button:hover{
   background-color: var(--text-color-04);
   color: var(--background-color-02);
+}
+
+@media screen and (min-width: 480px) {
+  .main{
+    margin: auto;
+  }  
 }

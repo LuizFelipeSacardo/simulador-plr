@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/results.css">
 
   <title>Simulador de PLR</title>
 </head>
@@ -31,7 +32,7 @@
   <main class="main">
     <section class="inputs">
       <form action="submit" class="form" id="form__antecipation">
-        <h3 class="form__main-title">ANTECIPAÇÃO:</h3>
+        <h3 class="form__main-title">ANTECIPAÇÃO PLR:</h3>
         <fieldset class="form__incomes-container">
 
           <h3 class="form__incomes-title">Salário e Variáveis</h3>
@@ -68,11 +69,11 @@
           <h3 class="form__incomes-title">Salário e Variáveis</h3>
 
           <label for="form__incomes-salary" class="label"> Informe seu salário:
-            <input type="number" class="input" id="form__incomes-salary" placeholder="Ex: 5000,00">
+            <input type="number" class="input" id="form__incomes-salary-02" placeholder="Ex: 5000,00">
           </label>     
 
           <label for="form__incomes-variables" class="label">Total de variavel (2º semestre):
-            <input type="number" class="input" id="form__incomes-variables" placeholder="Ex: 15000,00">
+            <input type="number" class="input" id="form__incomes-variables-02" placeholder="Ex: 15000,00">
           </label>  
         </fieldset>
 
@@ -81,28 +82,31 @@
           <h3 class="form__last-plr-title">Dados da ultima PLR</h3>
 
           <label for="form__last-plr-total" class="label">Valor Bruto da ultima PLR:
-            <input type="number" class="input" id="form__last-plr-total" placeholder="Ex: 20000,00">
+            <input type="number" class="input" id="form__last-plr-total-02" placeholder="Ex: 20000,00">
           </label>
 
           <label for="form__last-plr-taxes" class="label">IR pago na ultima PLR:
-            <input type="number" class="input" id="form__last-plr-taxes" placeholder="Ex: 3000,00">
+            <input type="number" class="input" id="form__last-plr-taxes-02" placeholder="Ex: 3000,00">
           </label>
         </fieldset>  
         
       </form>
 
       <button class="form__calculate-button" id="form__calculate-button">Calcular</button> 
+      <button class="form__calculate-button hide" id="form__calculate-button-02">Calcular</button> 
+
 
     </section>
 
-    <section class="results">
-      <div class="results__output">
+    <section class="results hide" id="results">
+      <div class="results__output" id="results__output">
       </div>
     </section>
 
   </main>
 
   <script src="assets/javascript/efects.js"></script>
+  <script src="assets/javascript/main.js"></script>
   
 </body>
 </html>
