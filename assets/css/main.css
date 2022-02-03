@@ -6,7 +6,6 @@
 .form{
   border: 2px solid var(--text-color-04);
   margin: 5px;
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
 }
@@ -45,7 +44,7 @@ fieldset{
   border: none;
   border-radius: 10px;
   background-color: var(--background-color-03);  
-  margin-bottom: 10px;  
+  margin-bottom: 5px;  
 }
 
 .input:focus{
@@ -63,6 +62,7 @@ fieldset{
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
   border: 2px solid var(--text-color-04);
   background-color: var(--background-color-01);
+  margin-top: 10px;
 }
 
 .form__calculate-button:active, .form__calculate-button:hover{

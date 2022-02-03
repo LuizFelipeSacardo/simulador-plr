@@ -1,8 +1,17 @@
-let calculateButtoAnticipation = document.querySelector('#form__calculate-button');
+let calculateButtonAnticipation = document.querySelector('#form__calculate-button');
 let calculateButtonPlr = document.querySelector('#form__calculate-button-02');
+let redoButtonPlr = document.querySelector('#form__redo-button');
+let redoButtonAnticipation = document.querySelector('#form__redo-button-02');
+let resultsOutputTotal = document.querySelector('#results__output-total-value');
+let resultsOutputTaxes = document.querySelector('#results__output-taxes-value');
+let resultsOutputNet = document.querySelector('#results__output-net-value');
 
-calculateButtoAnticipation.addEventListener('click', calculateAnticipation);
-calculateButtonPlr.addEventListener('click', calculatePlr)
+
+
+calculateButtonAnticipation.addEventListener('click', calculateAnticipation);
+calculateButtonPlr.addEventListener('click', calculatePlr);
+redoButtonPlr.addEventListener('click', redoPlr);
+redoButtonPlr.addEventListener('click', redoAntecipation);
 
 
 function calculateTaxes(totalIncomesToTax, lastPlrTaxes){
@@ -29,34 +38,27 @@ function calculateTaxes(totalIncomesToTax, lastPlrTaxes){
     deduction = 3051.53;
   }
 
-  let taxToBePaid = totalIncomesToTax * taxAliquot - deduction - lastPlrTaxes;
+  let taxToBePaid = (totalIncomesToTax * taxAliquot - deduction) - lastPlrTaxes;
   return taxToBePaid;
 }
 
 
 
 function calculatePlr(){
+  let salaryInput = document.querySelector('#form__incomes-salary-02').value;
+  let variablesSecondSemestrerInput = document.querySelector('#form__incomes-variables-02').value;
+  let lastPlrTotalValueInput = document.querySelector('#form__last-plr-total-02').value;
+  let lastPlrTaxesInput = document.querySelector('#form__last-plr-taxes-02').value;
 
-  let anticipationData = calculateAnticipation();
-
-  let salaryInput = document.querySelector('#form__incomes-salary-02');  
-  let lastPlrTotalValueInput = document.querySelector('#form__last-plr-total-02');
-  let lastPlrTaxesInput = document.querySelector('#form__last-plr-taxes-02');
-
-  salaryInput.value = anticipationData.fullSalary.toFixed(2);
-  lastPlrTotalValueInput.value = anticipationData.anticipationTotalValue.toFixed(2);
-  lastPlrTaxesInput.value = anticipationData.anticipationPaidTaxes.toFixed(2);
-
-  let salary = Number(document.querySelector('#form__incomes-salary-02').value);  
-  let lastPlrTotalValue = Number(document.querySelector('#form__last-plr-total-02').value);
-  let lastPlrTaxes = Number(document.querySelector('#form__last-plr-taxes-02').value)
-
+  let salary = Number(salaryInput.replace(",", "."));
+  let variablesSecondSemestrer = Number(variablesSecondSemestrerInput.replace(',', '.'));
+  let lastPlrTotalValue = Number(lastPlrTotalValueInput.replace(',', '.'));
+  let lastPlrTaxes = Number(lastPlrTaxesInput.replace(',', '.'));
 
   let majorityRuleValue = 2.2 * salary;
-  let profitShare = 2690.97;
-  let fixedShare = 1064.79
-  let variablesSecondSemestrer = Number(document.querySelector('#form__incomes-variables-02').value);
-  let anticipationDeduction = 5461.93;
+  let profitShare = 2807.03;
+  let fixedShare = 1122.81
+  let anticipationDeduction = (0.54 * salary) + 1684.21;
   let sindicateTax = 210.00;
   let totalIncomes = majorityRuleValue + profitShare + fixedShare + variablesSecondSemestrer - anticipationDeduction; 
 
@@ -64,22 +66,35 @@ function calculatePlr(){
   let taxesToPay = calculateTaxes(totalIncomesToTax, lastPlrTaxes)
   let netValue = totalIncomes - taxesToPay - sindicateTax;
 
-  let resultsOutput = document.querySelector('#results__output');
+  let form = document.querySelector('#form__plr');
+  calculateButtonPlr.classList.add('hide');
+  redoButtonPlr.classList.remove('hide');
+
+  form.classList.add('hide');
+  
   let resultsSection = document.querySelector('#results');
   resultsSection.classList.remove('hide');
-  resultsOutput.innerHTML = `<h3 class="results__title">RESULTADO</h3> Valor bruto: <span class="results__line">${totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} <br> </span> Imposto de Renda:  <span class="results__line results__line--deductor"> ${taxesToPay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span> <br>  Valor Liquido: <span class="results__line results__line--net"> ${netValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </span>`
+  resultsOutputTotal.innerHTML = `${totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+  resultsOutputTaxes.innerHTML = `${taxesToPay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+  resultsOutputNet.innerHTML = `${netValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`  
 }
 
 
 
 function calculateAnticipation(){
-  let salary = Number(document.querySelector('#form__incomes-salary').value);  
+  let salaryInput = document.querySelector('#form__incomes-salary').value;
+  let variablesFirstSemestrerInput = document.querySelector('#form__incomes-variables').value;
+  let lastPlrTotalValueInput = document.querySelector('#form__last-plr-total').value;
+  let lastPlrTaxesInput = document.querySelector('#form__last-plr-taxes').value;
+
+  let salary = Number(salaryInput.replace(",", "."));
+  let variablesFirstSemestrer = Number(variablesFirstSemestrerInput.replace(',', '.'));
+  let lastPlrTotalValue = Number(lastPlrTotalValueInput.replace(',', '.'));
+  let lastPlrTaxes = Number(lastPlrTaxesInput.replace(',', '.'));
+
   let anticipationSalary = salary * 0.54;
   let profitShareAnticipation = 2807.03;
   let fixedShareAnticipation = 1684.21;
-  let variablesFirstSemestrer = Number(document.querySelector('#form__incomes-variables').value);
-  let lastPlrTotalValue = Number(document.querySelector('#form__last-plr-total').value);
-  let lastPlrTaxes = Number(document.querySelector('#form__last-plr-taxes').value);
   let sindicateTax = 124.04
 
   let totalIncomes = anticipationSalary + profitShareAnticipation + fixedShareAnticipation + variablesFirstSemestrer - sindicateTax;
@@ -87,16 +102,33 @@ function calculateAnticipation(){
   let taxesToPay = calculateTaxes(totalIncomesToTax, lastPlrTaxes);
   let netValue = totalIncomes - taxesToPay;
 
-  let resultsOutput = document.querySelector('#results__output');
+  let form = document.querySelector('#form__antecipation');
+  calculateButtonAnticipation.classList.add('hide');
+  redoButtonAnticipation.classList.remove('hide');
+
+  form.classList.add('hide');
+
   let resultsSection = document.querySelector('#results');
   resultsSection.classList.remove('hide');
-  resultsOutput.innerHTML = `<h3 class="results__title">RESULTADO</h3> Valor bruto: <span class="results__line">${totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} <br> </span> Imposto de Renda:  <span class="results__line results__line--deductor"> ${taxesToPay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span> <br>  Valor Liquido: <span class="results__line results__line--net"> ${netValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </span>`
+  resultsOutputTotal.innerHTML = `${totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+  resultsOutputTaxes.innerHTML = `${taxesToPay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+  resultsOutputNet.innerHTML = `${netValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`
+}
 
-  let anticipationData = {
-    fullSalary: salary,
-    anticipationTotalValue: totalIncomes,
-    anticipationPaidTaxes: taxesToPay
-  } 
+function redoPlr(){
+  redoButtonPlr.classList.add('hide');
+  redoButtonAnticipation.classList.add('hide');
+  calculateButtonPlr.classList.remove('hide');
+  calculateButtonAnticipation.classList.add('hide');
+  resultsSection.classList.add('hide');
+  formPlr.classList.remove('hide');
+}
 
-  return anticipationData;
+function redoAntecipation(){
+  redoButtonPlr.classList.add('hide');
+  redoButtonAnticipation.classList.add('hide');
+  calculateButtonPlr.classList.add('hide');
+  calculateButtonAnticipation.classList.remove('hide');
+  resultsSection.classList.add('hide');
+  formAntecipation.classList.remove('hide'); 
 }

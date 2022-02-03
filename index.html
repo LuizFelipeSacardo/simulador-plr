@@ -21,8 +21,8 @@
     <h2 class="header__select-title">Selecione o periodo:</h2>
 
     <section class="header__select">
-      <button class="header__select-button header__select-button--active" id="header__select-button-01">Antecipação(Set)</button>
-      <button class="header__select-button" id="header__select-button-02">PLR(Fev)</button>
+      <button class="header__select-button" id="header__select-button-01">Antecipação(Set)</button>
+      <button class="header__select-button header__select-button--active" id="header__select-button-02">PLR(Fev)</button>
     </section>
   </header>
   
@@ -31,18 +31,18 @@
   
   <main class="main">
     <section class="inputs">
-      <form action="submit" class="form" id="form__antecipation">
+      <form action="submit" class="form hide" id="form__antecipation">
         <h3 class="form__main-title">ANTECIPAÇÃO PLR:</h3>
         <fieldset class="form__incomes-container">
 
           <h3 class="form__incomes-title">Salário e Variáveis</h3>
 
           <label for="form__incomes-salary" class="label"> Informe seu salário:
-            <input type="number" class="input" id="form__incomes-salary" placeholder="Ex: 5000,00">
+            <input type="number" class="input" id="form__incomes-salary" placeholder="R$" value="6995.78">
           </label>     
 
           <label for="form__incomes-variables" class="label">Total de variavel (1º semestre):
-            <input type="number" class="input" id="form__incomes-variables" placeholder="Ex: 15000,00">
+            <input type="number" class="input" id="form__incomes-variables" placeholder="R$" value="23159.05">
           </label>  
         </fieldset>
 
@@ -51,29 +51,29 @@
           <h3 class="form__last-plr-title">Dados da ultima PLR</h3>
 
           <label for="form__last-plr-total" class="label">Valor Bruto da ultima PLR:
-            <input type="number" class="input" id="form__last-plr-total" placeholder="Ex: 20000,00">
+            <input type="number" class="input" id="form__last-plr-total" placeholder="R$" value="34229.56">
           </label>
 
           <label for="form__last-plr-taxes" class="label">IR pago na ultima PLR:
-            <input type="number" class="input" id="form__last-plr-taxes" placeholder="Ex: 3000,00">
+            <input type="number" class="input" id="form__last-plr-taxes" placeholder="R$" value="6463.00">
           </label>
         </fieldset>  
         
       </form>
 
 
-      <form action="submit" class="form hide" id="form__plr">
+      <form action="submit" class="form" id="form__plr">
         <h3 class="form__main-title">PLR:</h3>
         <fieldset class="form__incomes-container">
 
           <h3 class="form__incomes-title">Salário e Variáveis</h3>
 
           <label for="form__incomes-salary" class="label"> Informe seu salário:
-            <input type="number" class="input" id="form__incomes-salary-02" placeholder="Ex: 5000,00">
+            <input type="number" class="input" id="form__incomes-salary-02" placeholder="R$" value="6995.78">
           </label>     
 
           <label for="form__incomes-variables" class="label">Total de variavel (2º semestre):
-            <input type="number" class="input" id="form__incomes-variables-02" placeholder="Ex: 15000,00">
+            <input type="number" class="input" id="form__incomes-variables-02" placeholder="R$" value="37200.00">
           </label>  
         </fieldset>
 
@@ -82,26 +82,53 @@
           <h3 class="form__last-plr-title">Dados da ultima PLR</h3>
 
           <label for="form__last-plr-total" class="label">Valor Bruto da ultima PLR:
-            <input type="number" class="input" id="form__last-plr-total-02" placeholder="Ex: 20000,00">
+            <input type="number" class="input" id="form__last-plr-total-02" placeholder="R$" value="31428.00">
           </label>
 
           <label for="form__last-plr-taxes" class="label">IR pago na ultima PLR:
-            <input type="number" class="input" id="form__last-plr-taxes-02" placeholder="Ex: 3000,00">
+            <input type="number" class="input" id="form__last-plr-taxes-02" placeholder="R$" value="8541.29">
           </label>
         </fieldset>  
         
       </form>
 
-      <button class="form__calculate-button" id="form__calculate-button">Calcular</button> 
-      <button class="form__calculate-button hide" id="form__calculate-button-02">Calcular</button> 
-
+      <button class="form__calculate-button hide" id="form__calculate-button">Calcular Ant.</button> 
+      <button class="form__calculate-button" id="form__calculate-button-02">Calcular PLR</button> 
 
     </section>
 
     <section class="results hide" id="results">
-      <div class="results__output" id="results__output">
+      <div class="results__output" id="results__output">  
+
+        <div class="results__output-box">
+          <h3 class="results__output-title">Total:</h3>
+          <span class="results__output-total-value" id="results__output-total-value">
+            R$ 50
+          </span>
+        </div>
+
+
+        <div class="results__output-box">
+          <h3 class="results__output-title">Imposto de Renda:</h3>
+          <span class="results__output-taxes-value" id="results__output-taxes-value">
+            R$ 10
+          </span>
+        </div>   
+        
+        
+        <div class="results__output-box">
+          <h3 class="results__output-title">Valor Liquido:</h3>
+          <span class="results__output-net-value" id="results__output-net-value">
+            R$ 40
+          </span>
+        </div>
+
+
       </div>
     </section>
+
+    <button class="form__calculate-button hide" id="form__redo-button">Refazer Ant.</button> 
+    <button class="form__calculate-button hide" id="form__redo-button-02">Refazer PLR</button> 
 
   </main>
 

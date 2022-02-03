@@ -1,13 +1,13 @@
 .results{
   width: 97%;
-  height: 120px;
+  height: 380px;
   margin: auto;
   margin-top: 10px; 
   margin-bottom: 10px;
   background-color: var(--background-color-01);
-  border: 2px solid var(--text-color-positive);
+  border: 2px solid var(--text-color-04);
   border-radius: 5px;
-  text-align: center;
+  text-align: center; 
 }
 
 .results__title{
@@ -16,7 +16,7 @@
   margin-top: 5px;  
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-color-positive);
+  color: var(--text-color-04);
   text-decoration: underline;
 }
 
@@ -32,4 +32,33 @@
 
 .results__line--net{
   color: var(--text-color-positive);
+}
+
+.results__output-box{
+  border: 5px dashed var(--text-color-02);
+  border-radius: 5px;
+  width: 90%;
+  height: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.results__output-title{
+  font-size: 1.4rem;
+  color: var(--text-color-01);
+  font-weight: 500;
+  line-height: 0;
+}
+
+.results__output-total-value, .results__output-taxes-value, .results__output-net-value{
+  font-size: 2.2rem;  
+}
+
+.results__output-taxes-value{
+  color: var(--text-color-negative);
+}
+
+.results__output-net-value{
+  color: var(--text-color-positive);
+  font-size: 3rem;
 }
