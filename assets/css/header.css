@@ -1,6 +1,6 @@
 .header{  
   max-width: 720px;
-  height: 150px;
+  height: 160px;
   background-color: var(--background-color-01);
   padding: 0; 
   margin: 4px;  
@@ -27,14 +27,14 @@ justify-content: space-evenly;
   text-align: center;
   font-size: 1.2rem;
   text-decoration: underline;
-  color: var(--text-color-03);
+  color: var(--text-color-01);
   margin-bottom: 5px;
   padding-bottom: 0;
 }
 
 .header__select-button{
   width: 48%;
-  height: 40px;
+  height: 50px;
   border: none;  
   background-color: var(--background-color-01);
   color: var(--text-color-03);
@@ -46,10 +46,11 @@ justify-content: space-evenly;
   border-bottom: 1px solid var(--text-color-03);
   background-color: var(--background-color-04);
   color: white;
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 480px) {
   .header{
-    margin: auto;
+    margin: auto;      
   }  
 }
