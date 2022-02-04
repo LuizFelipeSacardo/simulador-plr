@@ -1,0 +1,35 @@
+.footer{
+  background-color: var(--background-color-04);
+  height: 80px;
+  border-radius: 3px 3px 0 0;
+  max-width: 730px; 
+  width: 100%;
+  margin: auto; 
+}
+
+.footer__info, .footer__contact{
+  text-align: center;
+  color: var(--text-color-02);
+  font-size: 0.6rem;  
+  margin: 0;
+}
+
+.footer__info{
+  padding-top: 30px;
+  font-size: 0.9rem;
+}
+
+.footer__contact a{
+  color: var(--text-color-02);
+}
+
+@media screen and (min-width:480px) {
+  .footer{
+    margin: auto;
+    height: 100px;   
+  }
+
+  .footer__info{
+    padding-top: 65px;
+  }  
+}
